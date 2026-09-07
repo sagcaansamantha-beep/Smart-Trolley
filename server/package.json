@@ -1,0 +1,17 @@
+{
+  "name": "smartcart-os-server",
+  "version": "1.0.0",
+  "description": "Node + Express + SQLite backend for SmartCart OS",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "seed": "node seed.js",
+    "reset": "node seed.js"
+  },
+  "dependencies": {
+    "better-sqlite3": "^13.0.1",
+    "bcryptjs": "^2.4.3",
+    "express": "^4.19.2"
+  },
+  "allowScripts": {}
+}

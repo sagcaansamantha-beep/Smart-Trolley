@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SmartCart OS — SQLite build</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <!--
+      SQLITE MODE — reads and writes the real database.
+      Start the server first:   cd server && npm install && npm run seed && npm start
+      Then open this page at    http://localhost:3000/index-sqlite.html
+      (opening it from disk will fail the browser's cross-origin check).
+      For the no-install build, open index.html instead.
+    -->
+    <script>
+      window.SMARTCART_CONFIG = {
+        backend: 'api',
+        apiBaseUrl: 'http://localhost:3000/api',
+      };
+    </script>
+  </head>
+  <body>
+    <div id="toast"></div>
+    <div id="root"></div>
+
+    <!-- configuration -->
+    <script src="js/config.js"></script>
+
+    <!-- domain models (no DOM, no storage) -->
+    <script src="js/models.js"></script>
+
+    <!-- data layer -->
+    <script src="js/data/database.js"></script>
+    <script src="js/data/repositories.js"></script>
+    <script src="js/data/apiRepositories.js"></script>
+
+    <!-- services (business rules / FR + NFR enforcement) -->
+    <script src="js/services/authService.js"></script>
+    <script src="js/services/cartService.js"></script>
+    <script src="js/services/cashierService.js"></script>
+    <script src="js/services/adminService.js"></script>
+    <script src="js/services/auditService.js"></script>
+
+    <!-- ui infrastructure -->
+    <script src="js/ui/icons.js"></script>
+    <script src="js/ui/dom.js"></script>
+    <script src="js/ui/toast.js"></script>
+
+    <!-- views -->
+    <script src="js/views/baseView.js"></script>
+    <script src="js/views/shellView.js"></script>
+    <script src="js/views/loginView.js"></script>
+    <script src="js/views/queueView.js"></script>
+    <script src="js/views/verificationView.js"></script>
+    <script src="js/views/transactionsView.js"></script>
+    <script src="js/views/productsView.js"></script>
+    <script src="js/views/inventoryView.js"></script>
+    <script src="js/views/activityLogView.js"></script>
+    <script src="js/views/dashboardView.js"></script>
+    <script src="js/views/settingsView.js"></script>
+    <script src="js/views/simulatorView.js"></script>
+
+    <!-- composition root -->
+    <script src="js/app.js"></script>
+  </body>
+</html>
